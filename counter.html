@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="counter.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <div class="bg-container text-center d-flex flex-column justify-content-center">
+
+        <p id="counterValue" class="counter-value colors bg">0</p>
+        <div>
+           <button onClick="onDecrement()" class="button">DECREASE</button>
+            <button onClick="onReset()" class="button">Default</button>
+            <button onClick="onIncrement()" class="button">INCREASE</button>
+
+        </div>
+        </div>
+</body>
+</html> 
+<script>
+    let counterElement = document.getElementById("counterValue"); 
+
+
+function onIncrement() {
+    let previousCounterValue = counterElement.textContent;
+    let updatedCounterValue = parseInt(previousCounterValue) + 1;
+    if (updatedCounterValue > 0) {
+        counterElement.style.color = "green";
+    } else if (updatedCounterValue < 0) {
+        counterElement.style.color = "red";
+    } else {
+        counterElement.style.color = "Yellow";
+    }
+    counterElement.textContent = updatedCounterValue;
+}
+
+function onDecrement() {
+    let previousCounterValue = counterElement.textContent;
+    let updatedCounterValue = parseInt(previousCounterValue) - 1;
+    if (updatedCounterValue > 0) {
+        counterElement.style.color = "green";
+    } else if (updatedCounterValue < 0) {
+        counterElement.style.color = "red";
+    } else {
+        counterElement.style.color = "yellow";
+    }
+    counterElement.textContent = updatedCounterValue;
+}
+
+function onReset() {
+    let counterValue = 0;
+    counterElement.textContent = counterValue;
+    counterElement.style.color = "yellow";
+}
+</script>
